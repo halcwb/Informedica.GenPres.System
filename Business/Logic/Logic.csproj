@@ -7,8 +7,8 @@
     <ProjectGuid>{10E78993-8CD1-455F-8322-D85B8C7F33F2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Logic</RootNamespace>
-    <AssemblyName>Logic</AssemblyName>
+    <RootNamespace>Informedica.GenPres.Business.Logic</RootNamespace>
+    <AssemblyName>Informedica.GenPres.Business.Logic</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
