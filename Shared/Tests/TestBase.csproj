@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3B08859E-58EC-4712-ACF2-C029497574D9}</ProjectGuid>
+    <ProjectGuid>{EC0EE47E-DFC9-409D-8693-B9466993552B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Repositories.Integration.Tests</RootNamespace>
-    <AssemblyName>Repositories.Integration.Tests</AssemblyName>
+    <RootNamespace>Shared.TestBase</RootNamespace>
+    <AssemblyName>Shared.TestBase</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -33,23 +33,11 @@
     <Reference Include="FluentAssertions">
       <HintPath>..\..\packages\FluentAssertions.2.0.0.1\lib\net45\FluentAssertions.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="nunit.framework">
       <HintPath>..\..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="Raven.Abstractions">
-      <HintPath>..\..\packages\RavenDB.Database.2.0.2230\lib\net40\Raven.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="Raven.Client.Embedded">
-      <HintPath>..\..\packages\RavenDB.Embedded.2.0.2230\lib\net40\Raven.Client.Embedded.dll</HintPath>
-    </Reference>
-    <Reference Include="Raven.Client.Lightweight">
-      <HintPath>..\..\packages\RavenDB.Client.2.0.2230\lib\net40\Raven.Client.Lightweight.dll</HintPath>
-    </Reference>
-    <Reference Include="Raven.Database">
-      <HintPath>..\..\packages\RavenDB.Database.2.0.2230\lib\net40\Raven.Database.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -58,29 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ThatUserRepository.cs" />
+    <Compile Include="AssertAll.cs" />
+    <Compile Include="TestBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Application\Bootstrap\Bootstrap.csproj">
-      <Project>{6488442d-3c03-4ee2-b833-1b3fefe5f684}</Project>
-      <Name>Bootstrap</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Business\Entities\Entities.csproj">
-      <Project>{533cb753-b7a1-46a8-81cb-2d82f38790f7}</Project>
-      <Name>Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Shared\Tests\TestBase.csproj">
-      <Project>{ec0ee47e-dfc9-409d-8693-b9466993552b}</Project>
-      <Name>TestBase</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Repositories\Repositories.csproj">
-      <Project>{d8502539-96de-4f1f-806b-47285cd8db95}</Project>
-      <Name>Repositories</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

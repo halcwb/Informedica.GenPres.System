@@ -17,6 +17,12 @@ namespace Repositories
             session.Store(user);
             session.SaveChanges();
             return user;
-        } 
+        }
+
+        public User GetUser(string username)
+        {
+            var session = Bootstrap.GetSession();
+            return session.Query<User>().Single(user => user.Username == username);
+        }
     }
 }

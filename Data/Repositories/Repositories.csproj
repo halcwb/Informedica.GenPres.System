@@ -59,6 +59,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Application\Bootstrap\Bootstrap.csproj">
+      <Project>{6488442d-3c03-4ee2-b833-1b3fefe5f684}</Project>
+      <Name>Bootstrap</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Business\Entities\Entities.csproj">
       <Project>{533cb753-b7a1-46a8-81cb-2d82f38790f7}</Project>
       <Name>Entities</Name>

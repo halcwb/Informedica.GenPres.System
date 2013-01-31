@@ -20,5 +20,10 @@ namespace Informedica.GenPres.Application.Bootstrap
         {
             return Session;
         }
+
+        public static void Finalize()
+        {
+            Session.Dispose();
+        }
     }
 }
