@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Shared.TestBase
+namespace Shared.Test
 {
     public static class AssertAll
     {

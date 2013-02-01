@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Raven.Client;
+using Raven.Client.Embedded;
+using Raven.Database.Server;
 
 namespace Informedica.GenPres.Application.Bootstrap
 {
@@ -16,12 +18,23 @@ namespace Informedica.GenPres.Application.Bootstrap
             Session = openSession;
         }
 
+        public static void InitializeTest()
+        {
+            var documentStore = new EmbeddableDocumentStore
+            {
+                RunInMemory = true
+            };
+
+            documentStore.Configuration.AnonymousUserAccessMode = AnonymousUserAccessMode.All;
+            documentStore.Initialize();
+        }
+
         public static IDocumentSession GetSession()
         {
             return Session;
         }
 
-        public static void Finalize()
+        public static void EndSession()
         {
             Session.Dispose();
         }

@@ -9,34 +9,26 @@ using Informedica.GenPres.Business.Entities;
 using NUnit.Framework;
 using Raven.Client.Embedded;
 using Raven.Database.Server;
-using Shared.TestBase;
+using Shared.Test;
 
 namespace Repositories.Integration.Tests
 {
     [TestFixture]
     public class ThatUserRepository
     {
-        private EmbeddableDocumentStore _documentStore ;
         private const string Username = "admin";
         private const string PasswordHash = "590489053890";
 
         [SetUp]
         public void SetUpFixture()
         {
-            _documentStore = new EmbeddableDocumentStore
-            {
-                RunInMemory = true
-            };
-
-            _documentStore.Configuration.AnonymousUserAccessMode = AnonymousUserAccessMode.All;
-            _documentStore.Initialize();
-            Bootstrap.Initialize(_documentStore.OpenSession());
+            Bootstrap.InitializeTest();
         }
 
         [TearDown]
         public void TearDown()
         {
-            Bootstrap.Finalize();
+            Bootstrap.EndSession();
         }
 
         [Test]

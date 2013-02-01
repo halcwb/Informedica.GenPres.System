@@ -73,9 +73,9 @@
       <Project>{533cb753-b7a1-46a8-81cb-2d82f38790f7}</Project>
       <Name>Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Shared\Tests\TestBase.csproj">
-      <Project>{ec0ee47e-dfc9-409d-8693-b9466993552b}</Project>
-      <Name>TestBase</Name>
+    <ProjectReference Include="..\..\Shared\Test\Test.csproj">
+      <Project>{b4df6c5d-885b-416b-be4d-8e545053391e}</Project>
+      <Name>Test</Name>
     </ProjectReference>
     <ProjectReference Include="..\Repositories\Repositories.csproj">
       <Project>{d8502539-96de-4f1f-806b-47285cd8db95}</Project>
