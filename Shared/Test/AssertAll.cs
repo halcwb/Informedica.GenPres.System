@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace Shared.Test
 {
@@ -24,7 +24,7 @@ namespace Shared.Test
 
             if (errors.Any())
             {
-                var ex = new AssertFailedException(
+                var ex = new AssertionException(
                     string.Join(Environment.NewLine, errors.Select(e => e.Message)),
                     errors.First());
 
