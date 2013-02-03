@@ -27,6 +27,7 @@ namespace Informedica.GenPres.Application.Bootstrap
 
             documentStore.Configuration.AnonymousUserAccessMode = AnonymousUserAccessMode.All;
             documentStore.Initialize();
+            Session = documentStore.OpenSession();
         }
 
         public static IDocumentSession GetSession()
