@@ -45,7 +45,7 @@ namespace Repositories.Integration.Tests
         [Test]
         public void ShouldBeAbleToRetrieveAUser()
         {
-            var user = new User { Username = Username, PasswordHash = PasswordHash};
+            var user = User.CreateUser(Username, PasswordHash);
             var session = Bootstrap.GetSession();
             session.Store(user);
             session.SaveChanges();
