@@ -32,6 +32,10 @@ namespace Informedica.GenPres.Application.Bootstrap
 
         public static IDocumentSession GetSession()
         {
+            if (Session == null)
+            {
+                throw new NullReferenceException("Session is not initialized or disposed.");
+            }
             return Session;
         }
 
