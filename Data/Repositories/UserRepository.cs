@@ -12,7 +12,7 @@ namespace Repositories
     {
         public User CreateUser(string username, string password)
         {
-            var user = new User {Username = username};
+            var user = User.CreateUser(username, password);
             var session = Bootstrap.GetSession();
             session.Store(user);
             session.SaveChanges();

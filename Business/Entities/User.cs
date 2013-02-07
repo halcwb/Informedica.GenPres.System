@@ -10,5 +10,22 @@ namespace Informedica.GenPres.Business.Entities
     {
         public string Username { get; set; }
         public string PasswordHash { get; set; }
+
+        private User()
+        {
+            Username = "";
+            PasswordHash = "";
+        }
+
+        public static User CreateUser(string username, string password)
+        {
+            var user = new User()
+            {
+                Username = username,
+                PasswordHash = password
+            };
+
+            return user;
+        }
     }
 }

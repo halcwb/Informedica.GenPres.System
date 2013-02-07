@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Raven.Client;
 using Raven.Client.Embedded;
 using Raven.Database.Server;
@@ -37,6 +33,10 @@ namespace Informedica.GenPres.Application.Bootstrap
 
         public static IDocumentSession GetSession()
         {
+            if (Session == null)
+            {
+                throw new NullReferenceException("Session is not initialized or disposed.");
+            }
             return Session;
         }
 

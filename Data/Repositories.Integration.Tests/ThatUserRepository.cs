@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using FluentAssertions;
 using Informedica.GenPres.Application.Bootstrap;
 using Informedica.GenPres.Business.Entities;
 using NUnit.Framework;
-using Raven.Client.Embedded;
-using Raven.Database.Server;
 using Shared.Test;
 
 namespace Repositories.Integration.Tests
@@ -45,7 +39,7 @@ namespace Repositories.Integration.Tests
         [Test]
         public void ShouldBeAbleToRetrieveAUser()
         {
-            var user = new User { Username = Username, PasswordHash = PasswordHash};
+            var user = User.CreateUser(Username, PasswordHash);
             var session = Bootstrap.GetSession();
             session.Store(user);
             session.SaveChanges();
