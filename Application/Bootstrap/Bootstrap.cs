@@ -18,6 +18,11 @@ namespace Informedica.GenPres.Application.Bootstrap
             Session = openSession;
         }
 
+        private static void OpenSession(IDocumentSession openSession)
+        {
+
+        }
+
         public static void InitializeTest()
         {
             var documentStore = new EmbeddableDocumentStore
@@ -27,6 +32,7 @@ namespace Informedica.GenPres.Application.Bootstrap
 
             documentStore.Configuration.AnonymousUserAccessMode = AnonymousUserAccessMode.All;
             documentStore.Initialize();
+            this.OpenSession(documentStore.OpenSession);
         }
 
         public static IDocumentSession GetSession()
