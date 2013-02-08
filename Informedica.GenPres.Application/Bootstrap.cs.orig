@@ -1,0 +1,52 @@
+﻿using System;
+using Raven.Client;
+using Raven.Client.Embedded;
+using Raven.Database.Server;
+
+namespace Informedica.GenPres.Application.Bootstrap
+{
+    public static class Bootstrap
+    {
+        public static IDocumentSession Session;
+
+        public static void Initialize(IDocumentSession openSession)
+        {
+            Session = openSession;
+        }
+
+        private static void OpenSession(IDocumentSession openSession)
+        {
+
+        }
+
+        public static void InitializeTest()
+        {
+            var documentStore = new EmbeddableDocumentStore
+            {
+                RunInMemory = true
+            };
+
+            documentStore.Configuration.AnonymousUserAccessMode = AnonymousUserAccessMode.All;
+            documentStore.Initialize();
+<<<<<<< HEAD
+            this.OpenSession(documentStore.OpenSession);
+=======
+            Session = documentStore.OpenSession();
+>>>>>>> be8f7e6a96dad28b65cda0d3dc65e8ea46e855ac
+        }
+
+        public static IDocumentSession GetSession()
+        {
+            if (Session == null)
+            {
+                throw new NullReferenceException("Session is not initialized or disposed.");
+            }
+            return Session;
+        }
+
+        public static void EndSession()
+        {
+            Session.Dispose();
+        }
+    }
+}

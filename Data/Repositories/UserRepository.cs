@@ -1,28 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Informedica.GenPres.Application.Bootstrap;
+﻿using System.Linq;
 using Informedica.GenPres.Business.Entities;
+using Raven.Client;
 
 namespace Repositories
 {
-    public class UserRepository
+    public class UserRepository : RavenDbRepository<User>, IUserRepository
     {
+        public UserRepository(IDocumentSession session)
+            : base(session)
+        {
+            
+        }
+
         public User CreateUser(string username, string password)
         {
             var user = User.CreateUser(username, password);
-            var session = Bootstrap.GetSession();
-            session.Store(user);
-            session.SaveChanges();
+            Session.Store(user);
             return user;
         }
 
         public User GetUser(string username)
         {
-            var session = Bootstrap.GetSession();
-            return session.Query<User>().Single(user => user.Username == username);
+            return Session.Query<User>().Single(user => user.Username == username);
         }
     }
 }

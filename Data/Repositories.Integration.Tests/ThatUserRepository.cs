@@ -1,8 +1,10 @@
 ﻿using System.Linq;
 using FluentAssertions;
-using Informedica.GenPres.Application.Bootstrap;
 using Informedica.GenPres.Business.Entities;
 using NUnit.Framework;
+using Raven.Client;
+using Raven.Client.Embedded;
+using Raven.Database.Server;
 using Shared.Test;
 
 namespace Repositories.Integration.Tests
@@ -12,27 +14,38 @@ namespace Repositories.Integration.Tests
     {
         private const string Username = "admin";
         private const string PasswordHash = "590489053890";
+        
+        private IDocumentSession _session;
+        private EmbeddableDocumentStore _documentStore;
 
         [SetUp]
-        public void SetUpFixture()
+        public void SetUp()
         {
-            Bootstrap.InitializeTest();
+            _documentStore = new EmbeddableDocumentStore
+            {
+                RunInMemory = true
+            };
+
+            _documentStore.Configuration.AnonymousUserAccessMode = AnonymousUserAccessMode.All;
+            _documentStore.Initialize();
+            _session = _documentStore.OpenSession();
         }
 
         [TearDown]
         public void TearDown()
         {
-            Bootstrap.EndSession();
+            _session.Dispose();
+            _documentStore.Dispose();
         }
 
         [Test]
         public void ShouldBeAbleToCreateANewUser()
         {
-            var userRepository = new UserRepository();
+            var userRepository = new UserRepository(_session);
             userRepository.CreateUser(Username, PasswordHash);
+            _session.SaveChanges();
 
-            var session = Bootstrap.GetSession();
-            var getUser = session.Query<User>().Single(user => user.Username == Username);
+            var getUser = _session.Query<User>().Single(user => user.Username == Username);
             getUser.Username.Should().NotBeEmpty();
         }
 
@@ -40,11 +53,10 @@ namespace Repositories.Integration.Tests
         public void ShouldBeAbleToRetrieveAUser()
         {
             var user = User.CreateUser(Username, PasswordHash);
-            var session = Bootstrap.GetSession();
-            session.Store(user);
-            session.SaveChanges();
+            _session.Store(user);
+            _session.SaveChanges();
 
-            var userRepository = new UserRepository();
+            var userRepository = new UserRepository(_session);
             var getUser = userRepository.GetUser(Username);
             
             AssertAll.Succeed(
