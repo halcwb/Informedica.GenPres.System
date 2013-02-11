@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\Build\System\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -26,7 +26,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\..\Build\System\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -64,14 +64,17 @@
     <ProjectReference Include="..\Data\DataAcess\DataAcess.csproj">
       <Project>{5538633f-fa41-4442-883d-cce9092d124e}</Project>
       <Name>DataAcess</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\Data\Repositories\Repositories.csproj">
       <Project>{d8502539-96de-4f1f-806b-47285cd8db95}</Project>
       <Name>Repositories</Name>
+      <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="..\Presentation\Presentation.csproj">
+    <ProjectReference Include="..\Service\Presentation\Presentation.csproj">
       <Project>{1a55bba2-0e32-4962-a329-42c8c9b1bc28}</Project>
       <Name>Presentation</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
