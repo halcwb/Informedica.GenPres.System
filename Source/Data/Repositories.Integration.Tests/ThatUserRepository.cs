@@ -4,7 +4,6 @@ using Informedica.GenPres.Business.Entities;
 using NUnit.Framework;
 using Raven.Client;
 using Raven.Client.Embedded;
-using Raven.Database.Server;
 using Shared.Test;
 
 namespace Repositories.Integration.Tests
@@ -26,7 +25,6 @@ namespace Repositories.Integration.Tests
                 RunInMemory = true
             };
 
-            _documentStore.Configuration.AnonymousUserAccessMode = AnonymousUserAccessMode.All;
             _documentStore.Initialize();
             _session = _documentStore.OpenSession();
         }
@@ -35,7 +33,6 @@ namespace Repositories.Integration.Tests
         public void TearDown()
         {
             _session.Dispose();
-            _documentStore.Dispose();
         }
 
         [Test]

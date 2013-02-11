@@ -1,9 +1,7 @@
 ﻿using System.Web.Mvc;
 using Autofac;
 using Autofac.Core;
-using Autofac.Integration.Mvc;
 using FluentAssertions;
-using Informedica.GenPres.Application;
 using Informedica.GenPres.Application.IoC.Modules;
 using Informedica.GenPres.DataAcess;
 using NUnit.Framework;
