@@ -44,6 +44,9 @@
     <Reference Include="Raven.Client.Lightweight">
       <HintPath>..\..\packages\RavenDB.Client.2.0.2261\lib\net40\Raven.Client.Lightweight.dll</HintPath>
     </Reference>
+    <Reference Include="Raven.Client.MvcIntegration">
+      <HintPath>..\..\packages\RavenDB.Client.MvcIntegration.2.0.2261\lib\net40\Raven.Client.MvcIntegration.dll</HintPath>
+    </Reference>
     <Reference Include="Raven.Database">
       <HintPath>..\..\packages\RavenDB.Database.2.0.2261\lib\net40\Raven.Database.dll</HintPath>
     </Reference>
