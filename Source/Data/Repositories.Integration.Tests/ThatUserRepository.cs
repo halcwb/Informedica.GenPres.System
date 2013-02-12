@@ -29,12 +29,6 @@ namespace Repositories.Integration.Tests
             _session = _documentStore.OpenSession();
         }
 
-        [TearDown]
-        public void TearDown()
-        {
-            _session.Dispose();
-        }
-
         [Test]
         public void ShouldBeAbleToCreateANewUser()
         {
