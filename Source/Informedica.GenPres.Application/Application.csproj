@@ -72,7 +72,6 @@
     <ProjectReference Include="..\Data\Repositories\Repositories.csproj">
       <Project>{d8502539-96de-4f1f-806b-47285cd8db95}</Project>
       <Name>Repositories</Name>
-      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\Service\Presentation\Presentation.csproj">
       <Project>{1a55bba2-0e32-4962-a329-42c8c9b1bc28}</Project>

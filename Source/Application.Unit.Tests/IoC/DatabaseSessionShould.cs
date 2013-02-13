@@ -7,24 +7,26 @@ using Informedica.GenPres.DataAcess;
 using Informedica.GenPres.DataAcess.RavenDb;
 using NUnit.Framework;
 using Raven.Client;
-using TypeMock.ArrangeActAssert;
+using Rhino.Mocks;
 
 namespace Application.Unit.Tests.IoC
 {
     public class DatabaseSessionShould : IoCTestBase
     {
-        private RavenDbTestContext _ravenDbContext;
+        private IDatabaseContext _ravenDbContext;
 
         [SetUp]
         public void SetUp()
         {
             var builder = new ContainerBuilder();
 
-            _ravenDbContext = Isolate.Fake.Instance<RavenDbTestContext>(Members.ReturnRecursiveFakes);
+            _ravenDbContext = MockRepository.GenerateStub<IDatabaseContext>();
             
-            builder.RegisterInstance(_ravenDbContext).As<IDatabaseContext>().SingleInstance();
+            var stubDocumentSession = MockRepository.GenerateStub<IDocumentSession>();
+            _ravenDbContext.Stub(x => x.OpenSession()).Return(stubDocumentSession);
 
-            builder.Register(x => x.Resolve<IDatabaseContext>().OpenSession()).As<IDocumentSession>();
+            builder.RegisterInstance(_ravenDbContext).As<IDatabaseContext>();
+            builder.RegisterModule<DatabaseSessionModule>();
             
             base.BuildAndCreateTestDependencyResolver(builder);
         }
@@ -48,7 +50,7 @@ namespace Application.Unit.Tests.IoC
         public void CallDatabaseContextToCreateASession()
         {
             var session = DependencyResolver.Current.GetService<IDocumentSession>();
-            Isolate.Verify.WasCalledWithAnyArguments(() => _ravenDbContext.OpenSession());
+            _ravenDbContext.AssertWasCalled(x=>x.OpenSession());
         }
     }
 }

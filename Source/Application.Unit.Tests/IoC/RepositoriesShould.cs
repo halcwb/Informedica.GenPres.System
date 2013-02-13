@@ -2,10 +2,11 @@
 using Autofac;
 using FluentAssertions;
 using Informedica.GenPres.Application.IoC.Modules;
+using Informedica.GenPres.DataAcess;
 using NUnit.Framework;
 using Raven.Client;
 using Repositories;
-using TypeMock.ArrangeActAssert;
+using Rhino.Mocks;
 
 namespace Application.Unit.Tests.IoC
 {
@@ -18,8 +19,9 @@ namespace Application.Unit.Tests.IoC
         {
             var builder = new ContainerBuilder();
 
-            _session = Isolate.Fake.Instance<IDocumentSession>(Members.ReturnRecursiveFakes);
-            builder.RegisterInstance(_session).As<IDocumentSession>();
+            var stubDocumentSession = MockRepository.GenerateStub<IDocumentSession>();
+
+            builder.RegisterInstance(stubDocumentSession).As<IDocumentSession>();
 
             builder.RegisterModule<RepositoriesModule>();
 

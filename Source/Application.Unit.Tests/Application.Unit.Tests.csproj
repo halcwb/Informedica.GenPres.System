@@ -49,6 +49,9 @@
     <Reference Include="Raven.Client.Lightweight">
       <HintPath>..\packages\RavenDB.Client.2.0.2261\lib\net40\Raven.Client.Lightweight.dll</HintPath>
     </Reference>
+    <Reference Include="Rhino.Mocks">
+      <HintPath>..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -57,14 +60,6 @@
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
-    <Reference Include="TypeMock, Version=7.2.3.0, Culture=neutral, PublicKeyToken=3dae460033b8d8e2, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\TypeMock.dll</HintPath>
-    </Reference>
-    <Reference Include="Typemock.ArrangeActAssert, Version=7.2.3.0, Culture=neutral, PublicKeyToken=3dae460033b8d8e2, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Typemock.ArrangeActAssert.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BootstrapShould.cs" />
@@ -83,12 +78,12 @@
       <Name>DataAcess</Name>
     </ProjectReference>
     <ProjectReference Include="..\Data\Repositories\Repositories.csproj">
-      <Project>{d8502539-96de-4f1f-806b-47285cd8db95}</Project>
+      <Project>{D8502539-96DE-4F1F-806B-47285CD8DB95}</Project>
       <Name>Repositories</Name>
     </ProjectReference>
     <ProjectReference Include="..\Informedica.GenPres.Application\Application.csproj">
       <Project>{6488442d-3c03-4ee2-b833-1b3fefe5f684}</Project>
-      <Name>Application %28Application\Application%29</Name>
+      <Name>Application</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
