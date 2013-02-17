@@ -15,7 +15,7 @@ namespace Presentation
         public bool AuthenticateUser(string username, string password)
         {
             var userToCheck = _userRepository.GetUser(username);
-            return Login.ValidatePassword(password, "key");
+            return Login.ValidatePassword(userToCheck.PasswordHash, "key");
         }
     }
 }
