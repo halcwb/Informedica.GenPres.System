@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 
 namespace Informedica.GenPres.Business.Entities
 {
-    public class User
+    public class User : Entity
     {
         public string Username { get; set; }
         public string PasswordHash { get; set; }
 
-        private User()
+        protected User()
         {
             Username = "";
             PasswordHash = "";
