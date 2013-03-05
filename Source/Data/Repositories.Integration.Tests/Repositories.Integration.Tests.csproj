@@ -7,8 +7,8 @@
     <ProjectGuid>{3B08859E-58EC-4712-ACF2-C029497574D9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Repositories.Integration.Tests</RootNamespace>
-    <AssemblyName>Repositories.Integration.Tests</AssemblyName>
+    <RootNamespace>Informedica.Data.Repositories.Integration.Tests</RootNamespace>
+    <AssemblyName>Informedica.Data.Repositories.Integration.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>

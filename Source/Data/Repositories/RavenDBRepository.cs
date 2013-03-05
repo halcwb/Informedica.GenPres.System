@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Raven.Client;
 using Raven.Client.Document;
 
-namespace Repositories
+namespace Informedica.Data.Repositories
 {
     public class RavenDbRepository<T>
     {

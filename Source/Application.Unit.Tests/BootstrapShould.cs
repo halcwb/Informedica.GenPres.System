@@ -3,7 +3,7 @@ using Autofac.Integration.Mvc;
 using Informedica.GenPres.Application;
 using Informedica.GenPres.Application.IoC;
 using NUnit.Framework;
-using Repositories;
+using Informedica.Data.Repositories;
 
 namespace Application.Unit.Tests
 {

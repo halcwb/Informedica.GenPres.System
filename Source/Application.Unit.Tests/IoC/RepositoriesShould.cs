@@ -5,7 +5,7 @@ using Informedica.GenPres.Application.IoC.Modules;
 using Informedica.GenPres.DataAcess;
 using NUnit.Framework;
 using Raven.Client;
-using Repositories;
+using Informedica.Data.Repositories;
 using Rhino.Mocks;
 
 namespace Application.Unit.Tests.IoC

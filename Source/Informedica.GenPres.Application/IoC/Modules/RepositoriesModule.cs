@@ -1,6 +1,6 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
-using Repositories;
+using Informedica.Data.Repositories;
 
 namespace Informedica.GenPres.Application.IoC.Modules
 {

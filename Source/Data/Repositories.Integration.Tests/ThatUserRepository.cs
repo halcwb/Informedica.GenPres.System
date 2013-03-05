@@ -6,7 +6,7 @@ using Raven.Client;
 using Raven.Client.Embedded;
 using Shared.Test;
 
-namespace Repositories.Integration.Tests
+namespace Informedica.Data.Repositories.Integration.Tests
 {
     [TestFixture]
     public class ThatUserRepository

@@ -1,7 +1,7 @@
 ﻿using Informedica.GenPres.Business.Logic;
-using Repositories;
+using Informedica.Data.Repositories;
 
-namespace Presentation
+namespace Informedica.Service.Presentation
 {
     public class LoginService : ILoginService
     {

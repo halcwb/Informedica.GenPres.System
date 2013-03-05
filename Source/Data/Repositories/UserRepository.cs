@@ -2,7 +2,7 @@
 using Informedica.GenPres.Business.Entities;
 using Raven.Client;
 
-namespace Repositories
+namespace Informedica.Data.Repositories
 {
     public class UserRepository : RavenDbRepository<User>, IUserRepository
     {

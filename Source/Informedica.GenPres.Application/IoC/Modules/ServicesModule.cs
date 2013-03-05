@@ -4,8 +4,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Autofac;
 using Autofac.Integration.Mvc;
-using Presentation;
-using Repositories;
+using Informedica.Service.Presentation;
+using Informedica.Data.Repositories;
 
 namespace Informedica.GenPres.Application.IoC.Modules
 {

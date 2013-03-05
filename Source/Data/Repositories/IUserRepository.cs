@@ -1,6 +1,6 @@
 ﻿using Informedica.GenPres.Business.Entities;
 
-namespace Repositories
+namespace Informedica.Data.Repositories
 {
     public interface IUserRepository
     {
