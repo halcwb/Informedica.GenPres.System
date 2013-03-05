@@ -13,7 +13,7 @@ namespace Logic.Unit.Tests
         [Test]
         public void ValidatePassword()
         {
-            Login.ValidatePassword("user", "test").Should().BeTrue();
+            LoginScenario.ValidatePassword("user", "test").Should().BeTrue();
         }
     }
 }

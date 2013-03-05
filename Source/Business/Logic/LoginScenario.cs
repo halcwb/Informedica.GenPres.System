@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Informedica.GenPres.Business.Logic
 {
-    public class Login
+    public class LoginScenario
     {
         public static bool ValidatePassword(string password, string key)
         {
