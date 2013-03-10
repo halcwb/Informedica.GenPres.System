@@ -12,8 +12,6 @@ namespace Application.Unit.Tests.IoC
 {
     public class RepositoriesShould : IoCTestBase
     {
-        private IDocumentSession _session;
-
         [SetUp]
         public void SetUp()
         {

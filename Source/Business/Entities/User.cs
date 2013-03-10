@@ -16,7 +16,7 @@ namespace Informedica.GenPres.Business.Entities
             PasswordHash = "";
         }
 
-        public static User CreateUser(string username, string password)
+        public static User Create(string username, string password)
         {
             var user = new User()
             {

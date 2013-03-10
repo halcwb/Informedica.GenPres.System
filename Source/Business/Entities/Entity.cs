@@ -8,6 +8,6 @@ namespace Informedica.GenPres.Business.Entities
 {
     public abstract class Entity
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
     }
 }

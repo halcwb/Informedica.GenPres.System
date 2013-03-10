@@ -14,7 +14,7 @@ namespace Informedica.Service.Presentation
 
         public bool AuthenticateUser(string username, string password)
         {
-            var userToCheck = _userRepository.GetUser(username);
+            var userToCheck = _userRepository.Get(username);
             return LoginScenario.ValidatePassword(userToCheck.PasswordHash, "key");
         }
     }

@@ -37,30 +37,56 @@ namespace Informedica.Data.Repositories.Integration.Tests
         }
 
         [Test]
-        public void ShouldBeAbleToCreateANewUser()
+        public void ShouldBeAbleToSaveAUser()
         {
             var userRepository = new UserRepository(_session);
-            userRepository.CreateUser(Username, PasswordHash);
-            _session.SaveChanges();
-
-            var getUser = _session.Query<User>().Single(user => user.Username == Username);
-            getUser.Username.Should().NotBeEmpty();
+            var user = User.Create(Username, PasswordHash);
+            userRepository.Save(user);
+            user.Id.Should().NotBeEmpty();
         }
 
         [Test]
         public void ShouldBeAbleToRetrieveAUser()
         {
-            var user = User.CreateUser(Username, PasswordHash);
+            var user = User.Create(Username, PasswordHash);
             _session.Store(user);
             _session.SaveChanges();
 
             var userRepository = new UserRepository(_session);
-            var getUser = userRepository.GetUser(Username);
+            var getUser = userRepository.Get(Username);
             
             AssertAll.Succeed(
-                () => Assert.IsNotNullOrEmpty(getUser.PasswordHash, "password should be retrieved"),
-                () => Assert.IsNotNullOrEmpty(getUser.Username, "username should have been retrieved")
+                () => Assert.IsNotNullOrEmpty(getUser.Id, "Id should be retrieved"),
+                () => Assert.IsNotNullOrEmpty(getUser.PasswordHash, "Password should be retrieved"),
+                () => Assert.IsNotNullOrEmpty(getUser.Username, "Username should have been retrieved")
             );
+        }
+
+        [Test]
+        public void ShouldBeToGetAllUsers()
+        {
+            var user1 = User.Create(Username, PasswordHash);
+            var user2 = User.Create(Username, PasswordHash);
+            _session.Store(user1);
+            _session.Store(user2);
+            _session.SaveChanges();
+
+            var userRepository = new UserRepository(_session);
+            var users = userRepository.GetAll();
+            users.Count.Should().Be(2);
+        }
+
+        [Test]
+        public void SavingAnExistingUserShouldNotChangeId()
+        {
+            var user = User.Create(Username, PasswordHash);
+            _session.Store(user);
+            _session.SaveChanges();
+
+            var userRepository = new UserRepository(_session);
+            var userGet = userRepository.Get(Username);
+            userRepository.Save(userGet);
+            userGet.Id.Should().Be(user.Id);
         }
     }
 }
