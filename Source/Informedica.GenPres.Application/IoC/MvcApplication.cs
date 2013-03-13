@@ -5,11 +5,19 @@ namespace Informedica.GenPres.Application.IoC
 {
     public static class MvcApplication
     {
-        public static ContainerBuilder GetIoCBuilder()
+       public static ContainerBuilder BuildTestIoC()
        {
            var builder = new ContainerBuilder();
-           //builder.RegisterControllers(Assembly.GetExecutingAssembly());           
-           builder.RegisterModule(new DatabaseContextModule(true, ""));
+           builder.RegisterModule(new DatabaseTestContextModule());
+           builder.RegisterModule(new DatabaseSessionModule());
+           builder.RegisterModule(new RepositoriesModule());
+           return builder;
+       }
+
+       public static ContainerBuilder BuildAcceptanceIoC()
+       {
+           var builder = new ContainerBuilder();      
+           builder.RegisterModule(new DatabaseTestContextModule());
            builder.RegisterModule(new DatabaseSessionModule());
            builder.RegisterModule(new RepositoriesModule());
            return builder;

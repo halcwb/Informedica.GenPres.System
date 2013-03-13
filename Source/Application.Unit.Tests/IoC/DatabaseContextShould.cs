@@ -14,7 +14,7 @@ namespace Application.Unit.Tests.IoC
         public void SetUp()
         {
             var builder = new ContainerBuilder();        
-            builder.RegisterModule(new DatabaseContextModule(true));
+            builder.RegisterModule(new DatabaseTestContextModule());
             base.BuildAndCreateTestDependencyResolver(builder);
         }
 
@@ -31,19 +31,6 @@ namespace Application.Unit.Tests.IoC
             var dbCtx1 = DependencyResolver.Current.GetService<IDatabaseContext>();
             var dbCtx2 = DependencyResolver.Current.GetService<IDatabaseContext>();
             dbCtx1.Should().Be(dbCtx2);
-        }
-    }
-
-    public class DatabaseContextConfigurationShould : IoCTestBase
-    {
-        [Test]
-        public void ThrowAnExceptionWhenNoValidConfigurationIsProvided()
-        {
-            var builder = new ContainerBuilder();
-            builder.RegisterModule(new DatabaseContextModule(false, ""));
-            base.BuildAndCreateTestDependencyResolver(builder);
-
-            DependencyResolver.Current.Invoking(m => m.GetService<IDatabaseContext>()).ShouldThrow<DependencyResolutionException>();
         }
     }
 }

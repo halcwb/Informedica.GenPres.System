@@ -50,8 +50,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IoC\Modules\DatabaseAcceptanceContextModule.cs" />
     <Compile Include="IoC\MvcApplication.cs" />
-    <Compile Include="IoC\Modules\DatabaseContextModule.cs" />
+    <Compile Include="IoC\Modules\DatabaseTestContextModule.cs" />
     <Compile Include="IoC\Modules\DatabaseSessionModule.cs" />
     <Compile Include="IoC\Modules\RepositoriesModule.cs" />
     <Compile Include="IoC\Modules\ServicesModule.cs" />

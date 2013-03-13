@@ -1,6 +1,7 @@
 ﻿
 
 using Raven.Client;
+using Raven.Client.Document;
 using Raven.Client.Embedded;
 using Raven.Database.Server;
 
@@ -8,7 +9,7 @@ namespace Informedica.GenPres.DataAcess.RavenDb
 {
     public class RavenDbContext : IDatabaseContext
     {
-        private readonly EmbeddableDocumentStore _store;
+        private readonly DocumentStore _store;
 
         protected RavenDbContext()
         {
@@ -17,12 +18,12 @@ namespace Informedica.GenPres.DataAcess.RavenDb
 
         public RavenDbContext(string connectionString)
         {
-            _store = new EmbeddableDocumentStore
+            _store = new DocumentStore()
             {
-                RunInMemory = true
+                ConnectionStringName = "http://localhost:8080"
             };
-
-            _store.Configuration.AnonymousUserAccessMode = AnonymousUserAccessMode.All;
+            
+            //_store.Configuration.AnonymousUserAccessMode = AnonymousUserAccessMode.All;
             //IndexCreation.CreateIndexes(assembly, _store);
         }
 

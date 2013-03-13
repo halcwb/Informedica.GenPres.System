@@ -12,7 +12,7 @@ namespace Application.Unit.Tests
         [SetUp]
         public void SetUp()
         {
-            var builder = MvcApplication.GetIoCBuilder();
+            var builder = MvcApplication.BuildTestIoC();
             var container = builder.Build();
             var lifetimeScopeProvider = new StubLifetimeScopeProvider(container);
             var resolver = new AutofacDependencyResolver(container, lifetimeScopeProvider);

@@ -7,7 +7,7 @@ namespace Informedica.GenPres.Application
     {
         public TestSetup()
         {
-            var builder = MvcApplication.GetIoCBuilder();
+            var builder = MvcApplication.BuildTestIoC();
         }
     }
 }
