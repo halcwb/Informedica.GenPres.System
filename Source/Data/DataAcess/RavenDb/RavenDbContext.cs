@@ -16,11 +16,12 @@ namespace Informedica.GenPres.DataAcess.RavenDb
             
         }
 
-        public RavenDbContext(string connectionString)
+        public RavenDbContext(string url, string databaseName)
         {
             _store = new DocumentStore()
             {
-                ConnectionStringName = "http://localhost:8080"
+                Url = url,
+                DefaultDatabase = databaseName
             };
             
             //_store.Configuration.AnonymousUserAccessMode = AnonymousUserAccessMode.All;

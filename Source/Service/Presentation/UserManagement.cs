@@ -18,13 +18,8 @@ namespace Informedica.Service.Presentation
 
         public List<UserDto> GetUsers()
         {
-            var userDtos = new List<UserDto>();
             var users =_userRepository.GetAll();
-            for (int i = 0; i < users.Count; i++)
-            {
-                userDtos.Add(new UserDto(users[i]));
-            }
-            return userDtos;
+            return users.Select(t => new UserDto(t)).ToList();
         }
  
         public void AddUser(UserDto userDto)

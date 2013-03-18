@@ -9,17 +9,20 @@ namespace Informedica.GenPres.Application.IoC.Modules
 {
     public class DatabaseAcceptanceContextModule : Module
     {
-        private string _connectionString;
-        public DatabaseAcceptanceContextModule(string connectionString)
+        private readonly string _url;
+        private readonly string _databaseName;
+
+        public DatabaseAcceptanceContextModule(string url, string databaseName)
         {
-            _connectionString = connectionString;
+            _url = url;
+            _databaseName = databaseName;
         }
         protected override void Load(ContainerBuilder builder)
         {
             builder.Register(x =>
             {
                 IDatabaseContext store = null;
-                store = new RavenDbContext(_connectionString);
+                store = new RavenDbContext(_url, _databaseName);
                 store.Initialize();
                 return store;
             })
