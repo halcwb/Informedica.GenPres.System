@@ -27,14 +27,21 @@ namespace Informedica.Data.Repositories
         {
             if (string.IsNullOrEmpty(user.Id))
             {
-                Session.Store(user);    
+                Session.Store(user);
             }
+            else
+            {
+                Session.Store(user, user.Id);
+            }
+            
             Session.SaveChanges();
         }
 
         public void Delete(User user)
         {
-           Session.Delete(user); 
+           user = Session.Load<User>(user.Id);
+           Session.Delete(user);
+           Session.SaveChanges();
         }
     }
 }
