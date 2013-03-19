@@ -2,7 +2,7 @@
 
 namespace Informedica.Service.Presentation
 {
-    public class UserDto
+    public class UserDto : IDto
     {
         public string Username { get; set; }
         public string Password { get; set; }
@@ -10,7 +10,7 @@ namespace Informedica.Service.Presentation
 
         public UserDto()
         {
-            
+
         }
 
         public UserDto(User user)

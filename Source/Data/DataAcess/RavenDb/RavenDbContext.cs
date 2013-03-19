@@ -23,8 +23,8 @@ namespace Informedica.GenPres.DataAcess.RavenDb
                 Url = url,
                 DefaultDatabase = databaseName
             };
-            
-            //_store.Configuration.AnonymousUserAccessMode = AnonymousUserAccessMode.All;
+
+            _store.Conventions.DocumentKeyGenerator = (dbname, commands, entity) => _store.Conventions.GetTypeTagName(entity.GetType()) + "/";
             //IndexCreation.CreateIndexes(assembly, _store);
         }
 

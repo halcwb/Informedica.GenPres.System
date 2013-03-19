@@ -27,17 +27,17 @@ namespace Application.Unit.Tests.IoC
         }
 
         [Test]
-        public void UserRepositoryToBeResolvable()
+        public void EntityRepositoryToBeResolvable()
         {
-            var session = DependencyResolver.Current.GetService<IUserRepository>();
+            var session = DependencyResolver.Current.GetService<IEntityRepository>();
             session.Should().NotBeNull();
         }
 
         [Test]
-        public void UserRepositoryToBeSameInCurrentScope()
+        public void EntityRepositoryToBeSameInCurrentScope()
         {
-            var userRep1 = DependencyResolver.Current.GetService<IUserRepository>();
-            var userRep2 = DependencyResolver.Current.GetService<IUserRepository>();
+            var userRep1 = DependencyResolver.Current.GetService<IEntityRepository>();
+            var userRep2 = DependencyResolver.Current.GetService<IEntityRepository>();
             userRep1.Should().BeSameAs(userRep2);
         }
     }

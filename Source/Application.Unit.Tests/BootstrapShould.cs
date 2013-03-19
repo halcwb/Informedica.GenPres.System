@@ -12,7 +12,7 @@ namespace Application.Unit.Tests
         [SetUp]
         public void SetUp()
         {
-            var builder = MvcApplication.BuildTestIoC();
+            var builder = MvcApplication.BuildIoC();
             var container = builder.Build();
             var lifetimeScopeProvider = new StubLifetimeScopeProvider(container);
             var resolver = new AutofacDependencyResolver(container, lifetimeScopeProvider);
@@ -22,7 +22,7 @@ namespace Application.Unit.Tests
         [Test]
         public void CreatARepositoryWithASession()
         {
-            var repos = DependencyResolver.Current.GetService<IUserRepository>();
+            var repos = DependencyResolver.Current.GetService<IEntityRepository>();
             Assert.IsNotNull(repos);
         }
 

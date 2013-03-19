@@ -17,6 +17,7 @@ namespace Informedica.GenPres.DataAcess.RavenDb
                 RunInMemory = true
             };
 
+            _store.Conventions.DocumentKeyGenerator = (dbname, commands, entity) => _store.Conventions.GetTypeTagName(entity.GetType()) + "/";
             _store.Configuration.AnonymousUserAccessMode = AnonymousUserAccessMode.All;
             //IndexCreation.CreateIndexes(assembly, _store);
         }
