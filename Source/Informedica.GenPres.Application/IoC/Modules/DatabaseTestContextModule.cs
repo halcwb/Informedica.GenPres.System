@@ -9,7 +9,6 @@ namespace Informedica.GenPres.Application.IoC.Modules
 {
     public class DatabaseTestContextModule : Module
     {
-     
         protected override void Load(ContainerBuilder builder)
         {
             builder.Register(x =>

@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using Autofac;
+﻿using Autofac;
 using Autofac.Integration.Mvc;
 using Informedica.Service.Presentation;
-using Informedica.Data.Repositories;
 
 namespace Informedica.GenPres.Application.IoC.Modules
 {
@@ -15,6 +10,7 @@ namespace Informedica.GenPres.Application.IoC.Modules
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<LoginService>().As<ILoginService>().InstancePerHttpRequest();
+            builder.RegisterType<PatientService>().As<IPatientService>().InstancePerHttpRequest();
         }
     }
 }

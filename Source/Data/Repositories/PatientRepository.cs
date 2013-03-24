@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Informedica.GenPres.Business.Entities;
 using Raven.Client;
 
@@ -23,6 +20,12 @@ namespace Informedica.Data.Repositories
         public List<Patient> GetAll()
         {
             var patients = Session.Query<Patient>().ToList();
+            return patients;
+        }
+
+        public List<Patient> GetByLogicalUnitId(string logicalUnitId)
+        {
+            var patients = Session.Query<Patient>().Where(x=>x.LogicalUnitId == logicalUnitId).ToList();
             return patients;
         }
     }

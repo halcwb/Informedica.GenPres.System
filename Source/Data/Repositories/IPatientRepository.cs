@@ -7,5 +7,6 @@ namespace Informedica.Data.Repositories
     {
         Patient GetSingle(string id);
         List<Patient> GetAll();
+        List<Patient> GetByLogicalUnitId(string logicalUnitId);
     }
 }

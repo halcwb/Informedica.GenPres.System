@@ -49,5 +49,11 @@ namespace Informedica.Data.Repositories
             Session.Delete(entity);
             Session.SaveChanges();
         }
+
+        public List<Patient> GetByLogicalUnitId(string logicalUnitId)
+        {
+            var patients = Session.Query<Patient>().Where(x=>x.LogicalUnitId == logicalUnitId).ToList();
+            return patients;
+        }
     }
 }
