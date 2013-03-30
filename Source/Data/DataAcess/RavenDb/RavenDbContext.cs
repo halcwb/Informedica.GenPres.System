@@ -2,8 +2,6 @@
 
 using Raven.Client;
 using Raven.Client.Document;
-using Raven.Client.Embedded;
-using Raven.Database.Server;
 
 namespace Informedica.GenPres.DataAcess.RavenDb
 {

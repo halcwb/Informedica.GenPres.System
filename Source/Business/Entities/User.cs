@@ -10,7 +10,7 @@ namespace Informedica.GenPres.Business.Entities
         public string Username { get; set; }
         public string PasswordHash { get; set; }
 
-        protected User()
+        public User()
         {
             Username = "";
             PasswordHash = "";

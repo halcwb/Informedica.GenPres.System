@@ -29,8 +29,15 @@ namespace Application.Unit.Tests.IoC
         [Test]
         public void EntityRepositoryToBeResolvable()
         {
-            var session = DependencyResolver.Current.GetService<IEntityRepository>();
-            session.Should().NotBeNull();
+            var entityRepos = DependencyResolver.Current.GetService<IEntityRepository>();
+            entityRepos.Should().NotBeNull();
+        }
+
+        [Test]
+        public void PatientRepositoryToBeResolvable()
+        {
+            var patientRepos = DependencyResolver.Current.GetService<IPatientRepository>();
+            patientRepos.Should().NotBeNull();
         }
 
         [Test]
@@ -39,6 +46,14 @@ namespace Application.Unit.Tests.IoC
             var userRep1 = DependencyResolver.Current.GetService<IEntityRepository>();
             var userRep2 = DependencyResolver.Current.GetService<IEntityRepository>();
             userRep1.Should().BeSameAs(userRep2);
+        }
+
+        [Test]
+        public void PatientRepositoryToBeSameInCurrentScope()
+        {
+            var patientRepos1 = DependencyResolver.Current.GetService<IPatientRepository>();
+            var patientRepos2 = DependencyResolver.Current.GetService<IPatientRepository>();
+            patientRepos1.Should().BeSameAs(patientRepos2);
         }
     }
 }
