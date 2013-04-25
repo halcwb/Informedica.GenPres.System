@@ -35,5 +35,10 @@ namespace Informedica.GenPres.DataAcess.RavenDb
         {
             _store.Initialize();
         }
+
+        public void Dispose()
+        {
+            _store.Dispose();
+        }
     }
 }
